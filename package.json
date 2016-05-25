@@ -8,12 +8,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prompt": "^1.0.0"
+    "corpora-project": "^0.1.2"
   },
   "devDependencies": {
     "bower-files": "^3.13.1",
     "browser-sync": "^2.12.8",
     "browserify": "^13.0.1",
+    "corpora-project": "^0.1.2",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",

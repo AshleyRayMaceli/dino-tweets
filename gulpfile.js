@@ -85,6 +85,12 @@ gulp.task('jshint', function(){
     .pipe(jshint.reporter('default'));
 });
 
+gulp.task('corpora', function(){
+  return gulp.src(['js/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
 gulp.task('serve', function() {
   browserSync.init({
     server: {
