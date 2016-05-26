@@ -1,33 +1,33 @@
-// var apiKey = "YOUR-API-KEY-GOES-HERE";
-// var corpora = require('corpora-project');
-// var corporaProject = require('corpora-project');
-
 $(document).ready(function() {
-  // console.log(corpora.getCategories());
 
   $('.btn').click(function() {
-    // $('#emoji').text(corpora.getFile('emojis', 'sea_emoji'));
-    $.get('/sentence.json').then(function(response) {
-      $('#verb').html(response.sentenceStructure[Math.floor((Math.random() * 7) + 1)]);
+
+    $.get('/verb.json').then(function(response) {
+      $('#verb').html(response.verbs[Math.floor((Math.random() * response.verbs.length) + 1)].past);
     });
 
     $.get('/emoji.json').then(function(response) {
-      $('#emoji').html(response.seaEmoji[Math.floor((Math.random() * 16) + 1)]);
+      $('#emoji').html(response.seaEmoji[Math.floor((Math.random() * response.seaEmoji.length) + 1)]);
+    });
+
+    $.get('/occupation.json').then(function(response) {
+      $('#occupation').html(response.occupations[Math.floor((Math.random() * response.occupations.length) + 1)]);
     });
 
     $.get('http://corpora-api.herokuapp.com/corporations/fortune500').then(function(response) {
-      $('#companies').html(response.data.companies[Math.floor((Math.random() * 499) + 1)]);
-
+      $('#companies').html(response.data.companies[Math.floor((Math.random() * response.data.companies.length) + 1)]);
     });
 
     $.get('http://corpora-api.herokuapp.com/foods/fruits').then(function(response) {
-      $('#fruits').html(response.data.fruits[Math.floor((Math.random() * 79) + 1)]);
-
+      $('#fruits').html(response.data.fruits[Math.floor((Math.random() * response.data.fruits.length) + 1)]);
     });
 
       $.get('http://dinoipsum.herokuapp.com/api/?format=html&paragraphs=1&words=1').then(function(response){
-        $('#dinos').html(response);
+        $('#dinos').text(response.replace(".", "").replace("<p>", "").replace("</p>", ""));
+    });
 
+      $.get('http://dinoipsum.herokuapp.com/api/?format=html&paragraphs=1&words=1').then(function(response){
+        $('#dinoCeo').text(response.replace(".", "").replace("<p>", "").replace("</p>", ""));
     }, function() {
       console.log('Where did all the dinosaurs go?');
     });
