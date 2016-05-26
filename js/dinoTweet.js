@@ -44,3 +44,16 @@ exports.getFruit = function(displayFruit) {
     displayFruit(newFruit);
   });
 };
+
+exports.getDino = function(displayDino) {
+  var newDino = $.get('http://dinoipsum.herokuapp.com/api/?format=html&paragraphs=1&words=1').then(function(response) {
+    newDino= response.replace(".", "").replace("<p>", "").replace("</p>", "");
+    displayDino(newDino);
+  });
+};
+exports.getDinoTwitter = function(displayDinoTwitter) {
+  var newDinoTwitter = $.get('http://dinoipsum.herokuapp.com/api/?format=html&paragraphs=1&words=1').then(function(response) {
+    newDinoTwitter = response.replace(".", "").replace("<p>", "").replace("</p>", "");
+    displayDinoTwitter(newDinoTwitter);
+  });
+};
