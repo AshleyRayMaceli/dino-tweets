@@ -3,18 +3,23 @@ var getEmoji = require('./../js/dinoTweet.js').getEmoji;
 var getVerb = require('./../js/dinoTweet.js').getVerb;
 var getOccupation = require('./../js/dinoTweet.js').getOccupation;
 
-// var displayFunction = function(dataReturnedFromAPI) {
-//   //a bunch of jquery in here, or parse your data from the api
-//   $('#emoji').html(response.seaEmoji[Math.floor((Math.random() * response.seaEmoji.length) + 1)]);
-// }
+var displayEmoji = function(dataReturnedFromAPI) {
+  $('#emoji').text(dataReturnedFromAPI);
+}
 
+var displayVerb = function(dataReturnedFromAPI) {
+  $('#verb').text(dataReturnedFromAPI);
+}
+
+var displayOccupation = function(dataReturnedFromAPI) {
+  $('#occupation').text(dataReturnedFromAPI);
+}
 
 $(document).ready(function() {
   $('.btn').click(function() {
-    getEmoji();
-    getVerb();
-    getOccupation();
-    $('#emoji').text(getEmoji());
+    getEmoji(displayEmoji);
+    getVerb(displayVerb);
+    getOccupation(displayOccupation);
 
     // var newDinoTweet = new DinoTweet(newEmoji, ..);
 
@@ -26,9 +31,9 @@ $(document).ready(function() {
     //   $('#emoji').html(response.seaEmoji[Math.floor((Math.random() * response.seaEmoji.length) + 1)]);
     // });
 
-    $.get('/occupation.json').then(function(response) {
-      $('#occupation').html(response.occupations[Math.floor((Math.random() * response.occupations.length) + 1)]);
-    });
+    // $.get('/occupation.json').then(function(response) {
+    //   $('#occupation').html(response.occupations[Math.floor((Math.random() * response.occupations.length) + 1)]);
+    // });
 
     $.get('http://corpora-api.herokuapp.com/corporations/fortune500').then(function(response) {
       $('#companies').html(response.data.companies[Math.floor((Math.random() * response.data.companies.length) + 1)]);
