@@ -30,3 +30,17 @@ exports.getOccupation = function(displayOccupation) {
     displayOccupation(newOccupation);
   });
 };
+
+exports.getCompany = function(displayCompany) {
+  var newCompany = $.get('http://corpora-api.herokuapp.com/corporations/fortune500').then(function(response) {
+    newCompany = response.data.companies[Math.floor((Math.random() * response.data.companies.length) + 1)];
+    displayCompany(newCompany);
+  });
+};
+
+exports.getFruit = function(displayFruit) {
+  var newFruit = $.get('http://corpora-api.herokuapp.com/foods/fruits').then(function(response) {
+    newFruit = response.data.fruits[Math.floor((Math.random() * response.data.fruits.length) + 1)];
+    displayFruit(newFruit);
+  });
+};
