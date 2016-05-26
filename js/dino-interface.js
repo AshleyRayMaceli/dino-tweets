@@ -1,13 +1,7 @@
-// var apiKey = "YOUR-API-KEY-GOES-HERE";
-// var corpora = require('corpora-project');
-// var corporaProject = require('corpora-project');
 var DinoTweet = require('./../js/dinoTweet.js').DinoTweet;
-var getEmojis = require('./../js/dinoTweet.js').getEmojis;
-// var emojiAPI = DinoTweet.getEmojis();
-//
-// console.log(emojiAPI);
-
-
+var getEmoji = require('./../js/dinoTweet.js').getEmoji;
+var getVerb = require('./../js/dinoTweet.js').getVerb;
+var getOccupation = require('./../js/dinoTweet.js').getOccupation;
 
 // var displayFunction = function(dataReturnedFromAPI) {
 //   //a bunch of jquery in here, or parse your data from the api
@@ -16,21 +10,21 @@ var getEmojis = require('./../js/dinoTweet.js').getEmojis;
 
 
 $(document).ready(function() {
-
   $('.btn').click(function() {
-    // console.log(getEmojis());
-    getEmojis();
-    // var newEmoji = getEmojis();
-    //
+    getEmoji();
+    getVerb();
+    getOccupation();
+    $('#emoji').text(getEmoji());
+
     // var newDinoTweet = new DinoTweet(newEmoji, ..);
 
-    $.get('/verb.json').then(function(response) {
-      $('#verb').html(response.verbs[Math.floor((Math.random() * response.verbs.length) + 1)].past);
-    });
-
-    $.get('/emoji.json').then(function(response) {
-      $('#emoji').html(response.seaEmoji[Math.floor((Math.random() * response.seaEmoji.length) + 1)]);
-    });
+    // $.get('/verb.json').then(function(response) {
+    //   $('#verb').html(response.verbs[Math.floor((Math.random() * response.verbs.length) + 1)].past);
+    // });
+    //
+    // $.get('/emoji.json').then(function(response) {
+    //   $('#emoji').html(response.seaEmoji[Math.floor((Math.random() * response.seaEmoji.length) + 1)]);
+    // });
 
     $.get('/occupation.json').then(function(response) {
       $('#occupation').html(response.occupations[Math.floor((Math.random() * response.occupations.length) + 1)]);
