@@ -31,12 +31,14 @@ var displayFruit = function(dataReturnedFromAPI) {
 var displayDino = function(dataReturnedFromAPI) {
   $('#dino').text(dataReturnedFromAPI);
 };
+
 var displayDinoTwitter = function(dataReturnedFromAPI) {
   $('#dinoTwitter').text(dataReturnedFromAPI);
 };
 
 $(document).ready(function() {
   $('.btn').click(function() {
+    $('#allTweets').show();
     getEmoji(displayEmoji);
     getVerb(displayVerb);
     getOccupation(displayOccupation);

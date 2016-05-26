@@ -1,18 +1,5 @@
-// $gray : #d3d3d3;
-// $green : #75B975;
-//
-// .box {
-//   background: $gray;
-//   border: 3px solid black;
-//   padding: 40px 80px;
-//   .button {
-//     font-weight: bold;
-//     text-align: center;
-//     background: $green;
-//     color: white;
-//   }
-// }
 body {
+  font-family: 'Open Sans', sans-serif;
   font-size: 18pt;
 }
 
@@ -24,4 +11,19 @@ body {
     text-align: center;
     font-size: 20pt;
   }
+}
+
+#allTweets {
+  display: none;
+  text-align: center;
+  margin-top: 60px;
+}
+img {
+  padding-top: 50px;
+  padding-left: 60px;
+
+}
+
+h1{
+  margin-top: 200px;
 }
