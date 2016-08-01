@@ -4,7 +4,7 @@
 
 # _Dino Twitter Bot_
 
-#### _A JavaScript web app that generates random office dinosaur tweets using Dino Ipsum API and Corpora API. _
+#### _A JavaScript web app that generates random office dinosaur tweets using Dino Ipsum API and Corpora API._
 
 #### By _**Ashley Maceli**_
 
